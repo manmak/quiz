@@ -1,41 +1,86 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8"><title> Preguntas </title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-  <link rel='stylesheet' 
-        type='text/css'
-        media='only screen and (min-width: 530px) and (min-device-width: 481px)'
-        href='/stylesheets/wide.css' />
-  <link rel='stylesheet'
-        type='text/css'
-        media='only screen and (max-width: 480px)' 
-        href='/stylesheets/smartphone.css' />
-</head> 
+<!doctype html>
+<!--[if lt IE 7]>      
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="es">
+<![endif]-->
+<!--[if IE 7]>         
+<html class="no-js lt-ie9 lt-ie8" lang="es">
+<![endif]-->
+<!--[if IE 8]>         
+<html class="no-js lt-ie9" lang="es">
+<![endif]-->
+<!--[if gt IE 8]><!--> 
+<html class="no-js" lang="es">
+   <!--<![endif]-->
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title></title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+      <style>
+         body {
+         padding-top: 50px;
+         padding-bottom: 20px;
+         }
+      </style>
+      <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css">
+      <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+      <link rel="stylesheet" href="/stylesheets/main.css">
+      <script src="/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+   </head>
+   <body>
+      <!--[if lt IE 8]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
+      <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-links" aria-expanded="false">
+               <span class="sr-only">Pulse para mostrar los menús</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Quiz</a>
+         </div>
+         <div class="collapse navbar-collapse" id="navbar-collapse-links">
+            <ul class="navbar-nav nav">
+               <li><a href="/">Inicio</a></li>
+               <li><a href="/quizes/question">Preguntas</a></li>
+               <li><a href="/author">Créditos</a></li>
+            </ul>
+         </div>
+      </nav>
+      <div class="jumbotron">
+         <div class="container">
+            <h1>Quiz<span>: el juego de las preguntas</span></h1>
+         </div>
+      </div>
+      <div id="page-wrap" class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <section id="s1">
+                  <div class="panel panel-primary">
+                     <%- body %>
+                  </div>
+               </section>
+            </div>
+         </div>
+         <hr/>
+         <footer class="text-center" id="f1">
+            <span class="sr-only">Adaptado a </span>
+            <span class="visible-xs-inline"><i class="fa fa-mobile" aria-hidden="true" title="Dispositivo móvil"></i></span><span class="hidden">dispositivos móviles</span>
+            <span class="sr-only">y </span>
+            <span class="visible-lg-inline"><i class="fa fa-desktop" aria-hidden="true" title="Dispositivo de alta resolución"></i></span><span class="hidden">dispositivos de alta resolución</span>
+            <a href="http://es.wikipedia.org/wiki/Quiz">¿Que es un Quiz?</a>
+            <a href="https://github.com/manmak/quiz">GitHub</a>
+         </footer>
+      </div>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
-<body>
-<div id="page-wrap">
-  <header class="main" id="h1">
-    <h2>Quiz<span>: el juego de las preguntas</span></h2>
-  </header>
+        <script src="/js/vendor/bootstrap.min.js"></script>
 
-  <nav class="main" id="n1" role="navigation">
-    <span><a href="/">Inicio</a></span>
-    <span><a href="/quizes/question">Preguntas</a></span>
-    <span><a href="/author">Créditos</a></span>
-  </nav>
-
-  <section class="main" id="s1">
-    <div>
-      <%- body %>
-    </div>
-  </section>
-
-  <footer class="main" id="f1">
-    <a href="http://es.wikipedia.org/wiki/Quiz">
-      ¿Que es un Quiz?</a>
-    <a href="https://github.com/manmak/quiz">GitHub</a>
-  </footer>
-</div>
-</body> 
+        <script src="/js/main.js"></script>
+   </body>
 </html>

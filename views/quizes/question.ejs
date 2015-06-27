@@ -1,7 +1,18 @@
-<form method="get" action="/quizes/answer">        
-  Pregunta: <%= pregunta %>
-  <p>
-  <input type="text" name="respuesta" value="Respuesta"/>
-  <input type="submit" value="Enviar">
-  </p>
-</form>
+<div class="panel-heading">
+	<h3 class="panel-title">Pregunta: <%= pregunta %></h3>
+</div>
+<div class="panel-body">
+	<form class="form-horizontal" method="get" action="/quizes/answer" role="form">
+		<div class="form-group">
+			<label for="respuesta" class="col-sm-2 control-label">Respuesta</label>
+			<div class="col-sm-10">
+		    	<input type="text" class="form-control" name="respuesta" id="respuesta" placeholder="Escriba aquí su respuesta">
+		    </div>
+		</div>
+	    <div class="form-group">
+		    <div class="col-sm-offset-2 col-sm-10">
+				<input type="submit" class="btn btn-default" value="Enviar">
+			</div>
+		</div>
+	</form>
+</div>
