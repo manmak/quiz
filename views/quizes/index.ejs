@@ -5,7 +5,10 @@
 	<table class="table table-striped">
 		<tbody>
 			<% var i; for (i=0; i < quizes.length; i++) { %>
-				<tr><td><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td></tr>
+				<tr>
+					<td><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td>
+					<td><a href="quizes/<%= quizes[i].id %>/edit"><i class="fa fa-pencil" aria-hidden="true" aria-label="Editar"></i></a></td>
+				</tr>
 			<% } %>
 		</tbody>
 	</table>

@@ -69,7 +69,7 @@
                   <% if (errors.length) { %>
                      <ul class="list-group">
                         <% for (var i in errors) { %>
-                           <li class="list-group-item list-group-item-danger"><%= errors[i].message %></li>
+                           <li class="list-group-item list-group-item-danger"><i class="fa fa-exclamation-circle"></i> <%= errors[i].message %></li>
                         <% } %>
                      </ul>
                   <% } %>
