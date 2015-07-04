@@ -1,3 +1,23 @@
+<script type="text/javascript">
+window.onload = function() {
+	$('button[name="borrar"]').on('click', function (event) {
+		var $form=$(this).closest('form')
+		event.preventDefault()
+		$('#confirm-delete').one('click', '#delete-button', function() {
+            $form.trigger('submit');
+        });
+	})
+
+	$('#confirm-delete').on('show.bs.modal', function (event) {
+		var button = $(event.relatedTarget)
+		var pregunta = button.data('pregunta')
+
+		var modal = $(this)
+		modal.find('.modal-body').text('Borrar ' + pregunta)
+	})
+};
+</script>
+
 <div class="panel-heading">
 	<h3 class="panel-title">Preguntas</h3>
 </div>
@@ -7,12 +27,37 @@
 			<% var i; for (i=0; i < quizes.length; i++) { %>
 				<tr>
 					<td><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td>
-					<td><a href="quizes/<%= quizes[i].id %>/edit"><i class="fa fa-pencil" aria-hidden="true" aria-label="Editar"></i></a></td>
+					<td>
+						<div class="pull-right">
+							<a href="quizes/<%= quizes[i].id %>/edit"><i class="fa fa-pencil" aria-hidden="true" aria-label="Editar"></i></a>
+							<form class="form-inline" style="display: inline;" method="post" action="quizes/<%= quizes[i].id %>?_method=delete">
+  								<button type="submit" class="btn btn-link" name="borrar" aria-label="Borrar" data-toggle="modal" data-target="#confirm-delete" data-pregunta="<%= quizes[i].pregunta %>">
+  									<span class="fa fa-trash-o" aria-hidden="true"></span>
+  								</button>
+							</form>
+						</div>
+					</td>
 				</tr>
 			<% } %>
 		</tbody>
 	</table>
 </div>
 <div class="panel-body">
-<a class="btn btn-success" href="/quizes/new">Crear pregunta</a>
+	<a class="btn btn-success" href="/quizes/new">Crear pregunta</a>
+</div>
+
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="confirm-delete-label">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="confirm-delete-label">¿Está seguro de que desea borrar la pregunta?</h4>
+			</div>
+			<div class="modal-body"></div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+				<button type="button" class="btn btn-danger" id="delete-button">Borrar</button>
+			</div>
+		</div>
+	</div>
 </div>
