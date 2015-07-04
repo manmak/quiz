@@ -11,6 +11,18 @@
     </div>
 </div>
 <div class="form-group">
+	<label for="tema" class="hidden-xs col-sm-2 control-label">Índice temático</label>
+	<div class="col-xs-12 col-sm-10">
+		<select class="form-control" name="quiz[tema]" id="tema">
+			<option value="otro" <% if (['humanidades','ocio','ciencia','tecnologia'].indexOf(quiz.tema) < 0) { %> selected<% } %>>Otro</option>
+			<option value="humanidades" <% if ('humanidades' === quiz.tema) { %> selected<% } %>>Humanidades</option>
+			<option value="ocio" <% if ('ocio' === quiz.tema) { %> selected<% } %>>Ocio</option>
+			<option value="ciencia" <% if ('ciencia' === quiz.tema) { %> selected<% } %>>Ciencia</option>
+			<option value="tecnologia" <% if ('tecnologia' === quiz.tema) { %> selected<% } %>>Tecnología</option>
+		</select>
+    </div>
+</div>
+<div class="form-group">
 	<div class="col-sm-offset-2 col-sm-10">
 		<a class="btn btn-default" href="/quizes">Cancelar</a>
 		<input type="submit" class="btn btn-primary" value="Salvar" />

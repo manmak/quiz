@@ -27,6 +27,7 @@ window.onload = function() {
 			<% var i; for (i=0; i < quizes.length; i++) { %>
 				<tr>
 					<td><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td>
+					<td><%= quizes[i].tema.replace(/^[a-z]/, function(m){ return m.toUpperCase() }) %></td>
 					<td>
 						<div class="pull-right">
 							<a href="quizes/<%= quizes[i].id %>/edit"><i class="fa fa-pencil" aria-hidden="true" aria-label="Editar"></i></a>
