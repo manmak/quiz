@@ -15,12 +15,26 @@
 			</div>
 		</div>
 	</form>
-	<hr />
-	<h4 class="h3">Comentarios</h4>
-	<ul class="list-group">
-	<% for (index in quiz.Comments) { %>
-		<li class="list-group-item"><%= quiz.Comments[index].texto %></li>
-	<% } %>
-	</ul>
-	<a class="btn btn-success" href="/quizes/<%= quiz.id %>/comments/new">Nuevo comentario</a>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<caption>Comentarios</caption>
+			<tbody>
+				<% for (index in quiz.Comments) { %>
+						<% if (quiz.Comments[index].publicado || session.user) { %>
+						<tr>
+							<td><%= quiz.Comments[index].texto %></td>
+							<td>
+								<% if (!quiz.Comments[index].publicado && session.user) { %>
+									<div class="pull-right">
+										<a class="btn btn-success" href="/quizes/<%= quiz.id %>/comments/<%= quiz.Comments[index].id %>/publish">Publicar</a>
+									</div>
+								<% } %>
+							</td>
+						</tr>
+						<% } %>
+				<% } %>
+			</tbody>
+		</table>
+	</div>
+	<a class="btn btn-primary" href="/quizes/<%= quiz.id %>/comments/new">Nuevo comentario</a>
 </div>
