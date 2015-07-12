@@ -1,0 +1,18 @@
+<div class="panel-heading">
+	<h3 class="panel-title">Añadir comentario:</h3>
+</div>
+<div class="panel-body">
+	<form class="form-horizontal" method="post" action="/quizes/<%= quizid %>/comments/" role="form">
+		<div class="form-group">
+			<label for="comentario" class="hidden-xs col-sm-2 control-label">Comentario</label>
+			<div class="col-xs-12 col-sm-10">
+		    	<input type="text" class="form-control" name="comment[texto]" id="comentario" value="" placeholder="Nuevo comentario" />
+		    </div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<input type="submit" class="btn btn-primary" value="Enviar" />
+			</div>
+		</div>
+	</form>
+</div>

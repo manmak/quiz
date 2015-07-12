@@ -15,4 +15,12 @@
 			</div>
 		</div>
 	</form>
+	<hr />
+	<h4 class="h3">Comentarios</h4>
+	<ul class="list-group">
+	<% for (index in quiz.Comments) { %>
+		<li class="list-group-item"><%= quiz.Comments[index].texto %></li>
+	<% } %>
+	</ul>
+	<a class="btn btn-success" href="/quizes/<%= quiz.id %>/comments/new">Nuevo comentario</a>
 </div>
