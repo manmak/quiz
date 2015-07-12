@@ -27,6 +27,23 @@ app.use(session());
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// auto-logout:
+app.use(function(req, res, next) {
+    if (req.session.user) {
+		if (!req.session.timestamp) {
+			req.session.timestamp = new Date().getTime();
+		} else {
+			if (new Date().getTime() - req.session.timestamp > 120000) {
+				delete req.session.user;
+                delete req.session.timestamp;
+			} else {
+				req.session.timestamp = new Date().getTime();
+			}
+		}
+	}
+	next();
+});
+
 // Helpers dinamicos:
 app.use(function(req, res, next) {
 
