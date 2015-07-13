@@ -1,0 +1,29 @@
+<div class="panel-heading">
+	<h3 class="panel-title">Estadísticas</h3>
+</div>
+<div class="table-responsive">
+	<table class="table table-striped">
+		<tbody>
+			<tr>
+				<td>Número de preguntas</td>
+				<td><%= statistics.quizes %></td>
+			</tr>
+			<tr>
+				<td>Número de comentarios totales</td>
+				<td><%= statistics.comments %></td>
+			</tr>
+			<tr>
+				<td>Número medio de comentarios por pregunta</td>
+				<td><%= statistics.avg_comments %></td>
+			</tr>
+			<tr>
+				<td>Número de preguntas sin comentarios</td>
+				<td><%= statistics.without_comments %></td>
+			</tr>
+			<tr>
+				<td>Número de preguntas con comentarios</td>
+				<td><%= statistics.with_comments %></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
